@@ -23,7 +23,7 @@ l=list(map(lambda x,y:x+y,a,b))
 # 5 but NOT divisible by both.
 # Explain how the logical condition works
 nums = [12, 15, 7, 18, 20, 21, 25]
-l=list(filter(lambda x:(not x%3) ^ (not x%5),nums))
+l=list(filter(lambda x:(x%3 == 0) ^ (x%5 == 0),nums))
 #it operates wholely on the actual number to get actuall true or false lets use not operator
 #print(l)
 # 4. Given a list:
@@ -32,6 +32,10 @@ l=list(filter(lambda x:(not x%3) ^ (not x%5),nums))
 # of 10.
 # Explain how the initial value affects the reduction process.
 num = [1, 2, 3, 4]
-num1=reduce(lambda x,y:x+y,num,100)
+num1=reduce(lambda x,y:x+y,num,10)
 #reduce has initial value that is the 3rd variable which added with first element of the given list
-print(num1)
+#print(num1)
+nums = [[1, 2], [3, 4], [5, 6]]
+result = list(map(lambda x: x.append(10), nums))
+print("Result:", result)
+print("Nums:", nums)

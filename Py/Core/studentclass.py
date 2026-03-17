@@ -4,6 +4,9 @@ class Student:
     def __init__(self,name,branch):
         self.name=name
         self.branch=branch
+        self.place="NA"#if i give zip code it must give me the city name
+        self.address="NA"
+        self.registration_no="NA"
         if branch.lower() == "cse":
             self.fees = 190000
         elif branch.lower() == "eee":

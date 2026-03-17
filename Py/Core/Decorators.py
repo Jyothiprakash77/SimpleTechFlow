@@ -9,4 +9,12 @@ def extra_feature(mul):
 def mul(a,b):
     return a*b
 #mul=extra_feature(mul)
-mul(3,5)
+def reverse(sqr):
+    def wrapper(x):
+        n = sqr(x)
+        print(f"{n} and it's reversal is {str(n)[::-1]} ")
+    return wrapper
+@reverse
+def square(x):
+    return x**2
+square(56)

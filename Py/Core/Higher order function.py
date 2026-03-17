@@ -17,13 +17,13 @@ L=list(sorted(L7,key=cube,reverse=True))
 #Use map() with a lambda to add 5 to every element of the following nested
 #list [[1, 2], [3, 4], [5, 6]]
 L6=[[1, 2], [3, 4], [5, 6]]
-k=list(map(lambda x:x+[5],L6))
+k=list(map(lambda x:x+[5,6],L6))
 #print(k)
 
 #Given a dictionary: d = {"apple": 100, "banana": 40, "cherry": 150} . Use
 #filter() to keep only the keys whose values are greater than 50.
 def rem(dic):
-        if d[dic]>50:
+        if d[dic]>50:#when you put your key inside a dictionary then it gives the value
             return True
         return False
 
@@ -32,18 +32,20 @@ D1=list(filter(rem,d))
 #print(D1)
 #Use functools.reduce() with a lambda to find the largest number from a given
 #list Dynamically.
-#L1=list(map(int,input("Enter numbers: \n").split(" ")))
-#print(L1)
+# L1=list(map(int,input("Enter numbers: \n").split(" ")))
+# print(L1)
+# h=reduce(lambda a,b: a if a>b else b,L1)
+# print(h)
 #Use map() on a string to convert each character into its ASCII value
 #(using ord()). Print the result list.
 string="hang"
-S=list(map(lambda x:ord(x),string))
+S=list(map(ord,string))#ord() is ord
 #print(S)
 
 # 6.  Use filter() to remove all vowels from a string and print the final string.
 s="hi I'm Jyothi"
-S1=list(filter(lambda x:x not in "aeiouAEIOU",s))
-print(S1)
+S1=reduce(lambda x,y:str(x)+str(y),list(filter(lambda x:x not in "aeiouAEIOU ",s)))
+#print(S1)
 #Use reduce() to concatenate a list of characters into a single string.
 #Example input: ['P', 'y', 't', 'h', 'o', 'n'].
 St=['P', 'y', 't', 'h', 'o', 'n']
@@ -56,7 +58,7 @@ St=str(reduce(lambda a,b:a+b,St))
 Ex=[10, 350, 10, 350, 20, 89, 67]
 def address(x):
     return f"{x}->{id(x)}"
-L9=list(map(address,Ex))
+L9=list(map(id,Ex))
 #print(L9)
 
 #Explain the difference between:
@@ -71,5 +73,5 @@ L9=list(map(address,Ex))
 #• Use filter() to keep only numbers divisible by 5
 #• Use reduce() to calculate the sum of remaining number
 L8=[5, 10, 15, 20, 25, 30]
-sum=reduce(lambda a,b:a+b,list(filter(lambda x:True if x%5==0 else False,list(map(lambda x:x**2,L8)))))
+sum=reduce(lambda a,b:a+b,list(filter(lambda x:x%5==0,list(map(lambda x:x**2,L8)))))
 print(sum)
